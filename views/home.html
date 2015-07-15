@@ -1,0 +1,38 @@
+<h2>Tasks</h2>
+<div ng-show="create">
+<form ng-submit="createTask(task)" class="form-inline">
+	<div class="form-group">
+		<input type="text" ng-model="task.descricao" class="form-control">
+		<button class="btn btn-success">Cadastrar</button>
+	</div>
+</form>
+</div>
+<div ng-show="edit">
+<form ng-submit="updateTask(task)" class="form-inline">
+	<div class="form-group">
+		<input type="text" ng-model="task.descricao" class="form-control">
+		<button class="btn btn-success">Atualizar</button>
+	</div>
+</form>
+</div>
+
+<br/><br/>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>Descrição</td>
+			<td></td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="task in tasks">
+			<td>{{task._id.$oid}}</td>
+			<td>{{task.descricao}}</td>
+			<td><a class="btn btn-primary" ng-click="editTask(task)">Perfil</a></td>
+			<td><a class="btn btn-danger" ng-click="deleteTask(task)">Excluir</a></td>
+		</tr>
+	</tbody>
+</table>
